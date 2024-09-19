@@ -459,15 +459,6 @@ body {
   z-index: 1;
 }
 
-.team-section .container{
-    padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
 .team-container {
     display: flex;
     justify-content: space-around;
