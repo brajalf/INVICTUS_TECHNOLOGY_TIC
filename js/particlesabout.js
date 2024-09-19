@@ -129,4 +129,4 @@ particlesJS("particles-js-about", particlesConfig);
 particlesJS("particles-js-hero", particlesConfig);
 
 // Inicializa partículas en el preservice
-particlesJS("particles-js-team", particlesConfig);
+particlesJS("particles-js-teams", particlesConfig);
