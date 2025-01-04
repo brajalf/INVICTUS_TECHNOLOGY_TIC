@@ -17,7 +17,7 @@ html {
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
-  background-color: black;
+  background-color: white;
   padding-top: 80px; /* Ajusta este valor según la altura del header */
   overflow-x: hidden;
   overflow-y: hidden;
@@ -41,8 +41,8 @@ p,
 
 /* Header Styles */
 .header {
-  background-color: black; /* El fondo para ver las partículas */
-  color: #fff;
+  background-color: white; /* El fondo para ver las partículas */
+  color: black;
   padding: 10px; /* Ajusta el padding inicial */
   position: fixed; /* Asegura que el header se mantenga en la parte superior */
   width: 100vw; /* Asegura que el header ocupe todo el ancho */
@@ -116,15 +116,27 @@ p,
 }
 
 .nav-list a {
-  color: #fff;
+  color: black;
   text-decoration: none;
   padding: 10px;
   display: block;
 }
 
-.nav-list a:hover {
-  background-color: #1cace4;
-  border-radius: 5px;
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1cace4; /* Color al pasar el mouse */
+}
+
+.nav-link.active {
+  color: #1cace4; /* Color destacado para la página actual */
+  font-weight: bold;
+  border-bottom: 2px solid #1cace4; /* Línea decorativa */
 }
 
 /* Responsive Menu Toggle */
@@ -132,7 +144,7 @@ p,
   display: none;
   font-size: 24px;
   cursor: pointer;
-  color: #fff;
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -170,54 +182,242 @@ p,
 }
 
 /* Hero Section */
+/* Hero Content */
 .hero {
-  width: 100%; /* Ancho de toda la ventana */
-  height: 100vh; /* Altura de toda la ventana */
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/hero.jpg");
   background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
-  overflow: hidden; /* Evita el desbordamiento */
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-content {
-  width: 100%; /* Usa todo el ancho disponible */
-  margin: 0 auto; /* Centra el contenido horizontalmente */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px; /* Ajusta el padding según sea necesario */
-  box-sizing: border-box; /* Incluye el padding y border en el cálculo del ancho */
-  text-align: center; /* Alinea el texto al centro */
-}
-
-.hero-content h1 {
+  padding: 20px;
+  box-sizing: border-box;
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.5rem; /* Tamaño de texto mayor */
-  font-weight: bold; /* Opcional: para hacerlo más destacado */
-  background-image: linear-gradient(
-    45deg,
-    #1cace4,
-    #c5cee4,
-    #244c9c,
-    #4c6cac,
-    #14ace4,
-    #3c64a4,
-    #34549c
-  ); /* Degradado de colores */
-  background-clip: text; /* Aplicar degradado solo al texto */
-  -webkit-background-clip: text; /* Compatibilidad con Webkit (Chrome, Safari) */
-  color: transparent; /* Hacer el texto transparente para que se vea el degradado */
-  background-size: 300% 100%; /* Tamaño del degradado mayor para una transición más suave */
-  background-position: 0% 0%; /* Posición inicial del degradado */
-  animation: gradientShift 6s linear infinite; /* Animación más lenta para un desplazamiento más suave */
 }
 
-.hero-content p {
-  margin-bottom: 10px; /* Añade un margen en la parte inferior del párrafo */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-size: cover; /* Asegura que la imagen de fondo cubra el contenedor */
+  background-position: center;
+  background-attachment: fixed; /* Mantiene la imagen de fondo fija al scroll */
+  visibility: hidden; /* Evita que ocupen espacio en el DOM */
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 2;
+  position: relative;
+  visibility: visible; /* Ocupa espacio en el DOM */
+  transform: translateX(0); /* Posición inicial */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.carousel-slide h1,
+.carousel-slide p {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease-in-out;
+}
+
+.carousel-slide:hover h1,
+.carousel-slide:hover p {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.carousel-slide h1,
+.carousel-slide p {
+  z-index: 10;
+}
+
+.carousel-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4), /* Oscuridad arriba */
+    rgba(0, 0, 0, 0.4)  /* Oscuridad abajo */
+  );
+  z-index: -1;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.carousel-controls .prev,
+.carousel-controls .next {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 0 15px;
+  transition: transform 0.3s;
+}
+
+.carousel-controls .prev:hover,
+.carousel-controls .next:hover {
+  transform: scale(1.2);
+}
+
+.carousel-controls .prev {
+  left: 10px;
+}
+
+.carousel-controls .next {
+  right: 10px;
+}
+
+/* Animaciones siempre activas */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Animación de entrada del texto */
+.carousel-slide p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-slide.active p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-slide p {
+  animation: slideInText 0.6s ease forwards;
+}
+
+@keyframes slideInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-slide h1 {
+  position: relative;
+  display: inline-block;
+  animation: glitch 1s linear infinite;
+  color: white; /* Color principal */
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8); /* Brillo leve */
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+.carousel-slide h1::before,
+.carousel-slide h1::after {
+  content: attr(data-text); /* Duplica el contenido del h1 */
+  position: absolute;
+  left: 0;
+  color: white; /* Color glitch */
+  opacity: 0.8; /* Opacidad del glitch */
+}
+
+.carousel-slide h1::before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop {
+  2%, 64% {
+    transform: translate(2px, -2px);
+  }
+  4%, 60% {
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    transform: translate(13px, -1px) skew(-13deg);
+  }
+}
+
+.carousel-slide h1::after {
+  animation: glitchBottom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBottom {
+  2%, 64% {
+    transform: translate(-2px, 0);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0);
+  }
+  62% {
+    transform: translate(-22px, 5px) skew(21deg);
+  }
 }
 
 .btn {
@@ -238,8 +438,8 @@ p,
 /* Servicios */
 .services {
   padding: 50px;
-  background-color: black; /* Fondo negro */
-  color: white; /* Texto blanco */
+  background-color: white; /* Fondo negro */
+  color: black; /* Texto blanco */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -325,7 +525,7 @@ p,
 .service-item p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #ddd; /* Texto ligeramente gris */
+  color: white; /* Texto ligeramente gris */
 }
 
 .service-item:hover {
@@ -352,8 +552,8 @@ p,
 /* Contacto */
 .contact {
   padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -464,11 +664,19 @@ form button:hover {
 /* Nueva Sección antes de "Nuestros Servicios" */
 .pre-services {
   padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   text-align: center;
   position: relative;
   z-index: 1;
+}
+
+.pre-services .container{
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté por encima de las partículas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pre-services h2 {
@@ -498,6 +706,7 @@ form button:hover {
   margin-bottom: 20px;
   font-size: 1.2rem;
   animation: fadeIn 1.5s ease-in-out;
+  color: black;
 }
 
 /* Resumen corto sobre nosotros */
@@ -515,10 +724,22 @@ form button:hover {
   overflow: hidden; /* Evita el desbordamiento */
 }
 
+.about-us::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .about-us-content {
   width: 100%; /* Usa todo el ancho disponible */
   margin: 0 auto; /* Centra el contenido horizontalmente */
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), /* Oscuridad arriba */
+    rgba(0, 0, 0, 0.5)  /* Oscuridad abajo */
+  );
   padding: 20px; /* Ajusta el padding según sea necesario */
   box-sizing: border-box; /* Incluye el padding y border en el cálculo del ancho */
   text-align: center; /* Alinea el texto al centro */
@@ -560,8 +781,8 @@ form button:hover {
 /* Sección con video y texto al lado del video */
 .video-section {
   padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   position: relative;
   z-index: 1;
 }
@@ -646,10 +867,22 @@ form button:hover {
   overflow: hidden; /* Evita el desbordamiento */
 }
 
+.start-project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .start-project-content {
   width: 100%; /* Usa todo el ancho disponible */
   margin: 0 auto; /* Centra el contenido horizontalmente */
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), /* Oscuridad arriba */
+    rgba(0, 0, 0, 0.5)  /* Oscuridad abajo */
+  );
   padding: 20px; /* Ajusta el padding según sea necesario */
   box-sizing: border-box; /* Incluye el padding y border en el cálculo del ancho */
   text-align: center; /* Alinea el texto al centro */
@@ -699,8 +932,8 @@ form button:hover {
 /* Footer Styles */
 .footer {
   position: relative; /* Asegura que el footer sea el contenedor de referencia */
-  background-color: black;
-  color: #fff;
+  background-color: white;
+  color: black;
   padding: 40px 0;
   text-align: center;
 }
@@ -750,7 +983,7 @@ form button:hover {
 }
 
 .footer-social a {
-  color: #fff;
+  color: black;
   margin: 0 10px;
   font-size: 24px;
   transition: color 0.3s;

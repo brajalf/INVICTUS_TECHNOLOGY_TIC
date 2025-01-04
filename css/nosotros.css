@@ -17,7 +17,7 @@ html {
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
-  background-color: black;
+  background-color: white;
   padding-top: 80px; /* Ajusta este valor según la altura del header */
   overflow-x: hidden;
   overflow-y: hidden;
@@ -35,8 +35,8 @@ body {
 
 /* Header Styles */
 .header {
-  background-color: black; /* El fondo para ver las partículas */
-  color: #fff;
+  background-color: white; /* El fondo para ver las partículas */
+  color: black;
   padding: 10px; /* Ajusta el padding inicial */
   position: fixed; /* Asegura que el header se mantenga en la parte superior */
   width: 100vw; /* Asegura que el header ocupe todo el ancho */
@@ -110,15 +110,27 @@ body {
 }
 
 .nav-list a {
-  color: #fff;
+  color: black;
   text-decoration: none;
   padding: 10px;
   display: block;
 }
 
-.nav-list a:hover {
-  background-color: #1cace4;
-  border-radius: 5px;
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1cace4; /* Color al pasar el mouse */
+}
+
+.nav-link.active {
+  color: #1cace4; /* Color destacado para la página actual */
+  font-weight: bold;
+  border-bottom: 2px solid #1cace4; /* Línea decorativa */
 }
 
 /* Responsive Menu Toggle */
@@ -280,8 +292,8 @@ body {
 /* Sección Quienes Somos */
 .about-us-who {
   padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -328,8 +340,8 @@ body {
 /* Estilos de la Sección Sobre Nosotros */
 .about-us {
   padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -355,7 +367,6 @@ body {
 .about-content {
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
   gap: 20px;
   flex-direction: row; /* Alinea los elementos horizontalmente */
   flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
@@ -385,7 +396,6 @@ body {
 .about-block {
   padding: 20px;
   border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
 .about-block h3 {
@@ -413,7 +423,7 @@ body {
 
 .about-block p {
   font-size: 1rem;
-  color: #ddd;
+  color: black;
   text-align: justify;
 }
 
@@ -451,8 +461,8 @@ body {
 /* Estilo para la sección de valores */
 #valores {
   position: relative;
-  background-color: black;
-  color: #f5f5f5;
+  background-color: white;
+  color: white;
   padding: 80px 0;
   text-align: center;
   overflow: hidden;
@@ -503,6 +513,7 @@ body {
   justify-content: center;
   max-width: 900px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .valores-container li {
@@ -516,6 +527,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1;
 }
 
 /* Estilo para los puntos */
@@ -560,8 +572,8 @@ body {
 
 .team-section {
     padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -642,7 +654,7 @@ body {
 }
 
 .team-member p {
-    color: #ddd;
+    color: black;
     font-size: 1rem;
     text-align: justify;
 }
@@ -651,8 +663,8 @@ body {
 /* Contacto */
 .contact {
   padding: 50px 0;
-  background-color: #000; /* Fondo negro */
-  color: #fff;
+  background-color: white; /* Fondo negro */
+  color: black;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -718,8 +730,8 @@ form button:hover {
 /* Footer Styles */
 .footer {
   position: relative; /* Asegura que el footer sea el contenedor de referencia */
-  background-color: black;
-  color: #fff;
+  background-color: white;
+  color: black;
   padding: 40px 0;
   text-align: center;
 }
@@ -769,7 +781,7 @@ form button:hover {
 }
 
 .footer-social a {
-  color: #fff;
+  color: black;
   margin: 0 10px;
   font-size: 24px;
   transition: color 0.3s;

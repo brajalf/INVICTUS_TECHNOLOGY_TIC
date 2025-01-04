@@ -17,7 +17,7 @@ html {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: black;
+    background-color: white;
     padding-top: 80px; /* Ajusta este valor según la altura del header */
     overflow-x: hidden;
     overflow-y: hidden;
@@ -35,8 +35,8 @@ body {
 
 /* Header Styles */
 .header {
-    background-color: black; /* El fondo para ver las partículas */
-    color: #fff;
+    background-color: white; /* El fondo para ver las partículas */
+    color: black;
     padding: 10px; /* Ajusta el padding inicial */
     position: fixed; /* Asegura que el header se mantenga en la parte superior */
     width: 100vw; /* Asegura que el header ocupe todo el ancho */
@@ -111,16 +111,29 @@ body {
 }
 
 .nav-list a {
-    color: #fff;
+    color: black;
     text-decoration: none;
     padding: 10px;
     display: block;
 }
 
-.nav-list a:hover {
-    background-color: #1cace4;
-    border-radius: 5px;
-}
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #1cace4; /* Color al pasar el mouse */
+  }
+  
+  .nav-link.active {
+    color: #1cace4; /* Color destacado para la página actual */
+    font-weight: bold;
+    border-bottom: 2px solid #1cace4; /* Línea decorativa */
+  }
+  
 
 /* Responsive Menu Toggle */
 .menu-toggle {
@@ -226,8 +239,8 @@ body {
 /* Estilos del carrusel */
 .services-carousel {
     padding: 50px;
-    background-color: black; /* Fondo negro */
-    color: white;
+    background-color: white; /* Fondo negro */
+    color: black;
     text-align: center;
     position: relative;
 }
@@ -276,7 +289,7 @@ body {
 
 .carousel-item p {
     font-size: 1rem;
-    color: #ddd;
+    color: white;
     text-align: justify;
 }
 
@@ -398,8 +411,8 @@ body {
 /* Contacto */
 .contact {
     padding: 50px 0;
-    background-color: #000; /* Fondo negro */
-    color: #fff;
+    background-color: white; /* Fondo negro */
+    color: black;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -512,8 +525,8 @@ form button:hover {
 /* Footer Styles */
 .footer {
     position: relative; /* Asegura que el footer sea el contenedor de referencia */
-    background-color: black;
-    color: #fff;
+    background-color: white;
+    color: black;
     padding: 40px 0;
     text-align: center;
 }
@@ -561,7 +574,7 @@ form button:hover {
 }
 
 .footer-social a {
-    color: #fff;
+    color: black;
     margin: 0 10px;
     font-size: 24px;
     transition: color 0.3s;
