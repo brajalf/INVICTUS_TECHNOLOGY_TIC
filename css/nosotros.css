@@ -138,7 +138,7 @@ body {
   display: none;
   font-size: 24px;
   cursor: pointer;
-  color: #fff;
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -146,7 +146,7 @@ body {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
     position: fixed; /* Cambiar a position: fixed */
     top: 50px; /* Asegura que el menú no cubra el toggle */
     left: 0;

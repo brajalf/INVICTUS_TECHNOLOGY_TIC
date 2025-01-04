@@ -152,7 +152,7 @@ p,
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo semi-transparente */
+    background-color: rgba(248, 244, 244, 0.9); /* Fondo semi-transparente */
     position: fixed; /* Cambiar a position: fixed */
     top: 50px; /* Asegura que el menú no cubra el toggle */
     left: 0;
